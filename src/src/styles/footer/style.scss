@@ -1,0 +1,22 @@
+.footer {
+  width: 100%;
+  padding: 2.25rem 0;
+  border-top: solid 1px rgba(#111827, 0.1);
+  .footerTitle {
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  .socialMediaBlock {
+    .socialMediaTitle {
+      margin-bottom: 1rem;
+    }
+    .twitterBtn {
+      padding: 1rem 2rem;
+      background-color: #1DA1F2;
+      border-radius: 0.25rem;
+      color: #fff;
+      font-size: 1.125rem;
+    }
+  }
+}

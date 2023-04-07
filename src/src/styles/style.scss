@@ -1,12 +1,15 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
+html {
+  font-size: 100%;
+  line-height: 1;
   input:-webkit-autofill {
     box-shadow: 0 0 0 1000px white inset;
   }
   .scrollHide::-webkit-scrollbar {
     display: none;
   }
+}
+
+.containerLarge {
+  width: 76%;
+  margin: 0 auto;
 }
