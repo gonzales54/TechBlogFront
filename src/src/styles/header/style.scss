@@ -9,11 +9,13 @@
     align-items: center;
     .nav {
       display: flex;
-      li:not(:last-child) {
-        margin-right: 1rem;
-        transition: .3s;
+      li {
         &:hover {
           opacity: .7;
+        }
+        &:not(:last-child) {
+          margin-right: 1rem;
+          transition: .3s;
         }
       }
     }

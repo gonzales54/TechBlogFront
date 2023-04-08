@@ -1,0 +1,62 @@
+.gridArticles {
+  width: 100%;
+  padding: 2rem 0;
+  overflow: hidden;
+  .gridArticlesHead {
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    .gridArticlesTitle {
+      margin-right: 1rem;
+      font-size: 1.25rem;
+    }
+    .reloadBtn {
+
+    }
+  }
+  .articleContainer {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    .article {
+      width: 19.125rem;
+      border-radius: 0.5rem;
+      .articleImage {
+        img {
+          width: 100%;
+          height: 11.8125rem;
+          border-top-left-radius: 0.25rem;
+          border-top-right-radius: 0.25rem;
+        }
+      }
+      .articleInformation {
+        width: 100%;
+        padding: 1.5rem 1rem 0.5rem 1rem;
+        .articleTitle {
+          margin-bottom: 1rem;
+          font-size: 1.5rem;
+          font-weight: 600;
+        }
+        .articleDescription {
+          margin-bottom: 2.25rem;
+        }
+        .createdAt {
+          text-align: right;
+          font-size: 0.75rem;
+        }
+      }
+      &:first-child, &:nth-child(2), &:nth-child(3) {
+        margin-bottom: 2rem;
+      }
+      &:first-child, &:nth-child(4) {
+        justify-self: start;
+      }
+      &:nth-child(2), &:nth-child(5) {
+        justify-self: center;
+      }
+      &:nth-child(3), &:last-child {
+        justify-self: end;
+      }
+    }
+  }
+}
