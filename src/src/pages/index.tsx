@@ -1,8 +1,8 @@
 import Head from "next/head";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import CategoryBtn from "@/components/CategoryBtn";
+import Footer from "@/components/Footer";
 import GridArticles from "@/components/GridArticles";
+import Header from "@/components/Header";
 
 export default function Home() {
   return (
@@ -13,11 +13,18 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div style={{ width: '100%',display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
-        <Header/>
-        <GridArticles/>
-        <CategoryBtn/>
-        <Footer/>
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          flexDirection: "column",
+          overflow: "hidden",
+        }}
+      >
+        <Header />
+        <GridArticles />
+        <CategoryBtn />
+        <Footer />
       </div>
     </>
   );
