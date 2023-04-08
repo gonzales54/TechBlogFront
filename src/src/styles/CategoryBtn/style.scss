@@ -21,6 +21,12 @@
           border-radius: 0.25rem;
           color: #6b7280;
           font-size: 0.75rem;
+          font-weight: 500;
+          box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+          transition: .3s;
+          &:hover {
+            box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
+          }
         }
       }
     }

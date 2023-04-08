@@ -11,16 +11,22 @@
       font-size: 1.25rem;
     }
     .reloadBtn {
-
+      transition: .5s;
+    }
+    .reloadBtn.active {
+      transform: rotate(360deg);
     }
   }
   .articleContainer {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    
     .article {
       width: 19.125rem;
       border-radius: 0.5rem;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      transition: .3s;
       .articleImage {
         img {
           width: 100%;
@@ -34,13 +40,14 @@
         padding: 1.5rem 1rem 0.5rem 1rem;
         .articleTitle {
           margin-bottom: 1rem;
-          font-size: 1.5rem;
+          font-size: 1.25rem;
           font-weight: 600;
         }
         .articleDescription {
           margin-bottom: 2.25rem;
         }
         .createdAt {
+          color: #6B7280;
           text-align: right;
           font-size: 0.75rem;
         }
@@ -56,6 +63,9 @@
       }
       &:nth-child(3), &:last-child {
         justify-self: end;
+      }
+      &:hover {
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
       }
     }
   }

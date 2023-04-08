@@ -27,10 +27,15 @@
       padding: 1rem 2.25rem;
       background: #14B8A6;
       border-radius: 0.25rem;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      transition: .3s;
       .icon {
         width: 2.625rem;
         height: 2.625rem;
         color: #f8fafc;
+      }
+      &:hover {
+        box-shadow: 4px 6px 4px rgba(0, 0, 0, 0.3);
       }
     }
   }
