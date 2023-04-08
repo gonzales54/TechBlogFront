@@ -1,0 +1,28 @@
+.articleLinkBtn {
+  width: 100%;
+  border-top: solid 1px rgba(#6B7280, 0.1);
+  .container {
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .articleLink {
+      padding: 3rem 1rem;
+      display: flex;
+      align-items: center;
+      border-radius: 0.5rem;
+      font-size: 1.25rem;
+      transition: .3s;
+      &:hover {
+        background: rgba(#6B7280, 0.05);
+      }
+    }
+    .linkBorderLine {
+      width: 1px;
+      height: 5rem;
+      border-top: 0;
+      border-bottom: 0;
+      border-right: solid 1px rgba(#111827, 0.1);
+    }
+  }
+}

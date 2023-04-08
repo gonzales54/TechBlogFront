@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Header from "@/components/Haeder";
 import Footer from "@/components/Footer";
+import ArticleLinkBtn from "@/components/ArticleLinkBtn";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       </Head>
       <div style={{ width: '100vw',display: 'flex', flexDirection: 'column' }}>
         <Header/>
+        <ArticleLinkBtn/>
         <Footer/>
       </div>
     </>

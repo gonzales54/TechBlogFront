@@ -7,7 +7,7 @@ const poppins = Poppins({
 const Footer = () => {
   return (
     <footer className={`footer`}>
-      <div className={`containerLarge`}>
+      <div className={`container`}>
         <h3 className={`${poppins.className} footerTitle`}>Tech Itokawa Blog</h3>
         <div className={`socialMediaBlock`}>
           <h4 className={`${poppins.className} socialMediaTitle`}>Social Media</h4>
