@@ -2,6 +2,7 @@ import Head from "next/head";
 import Header from "@/components/Haeder";
 import Footer from "@/components/Footer";
 import ArticleLinkBtn from "@/components/ArticleLinkBtn";
+import CategoryBtn from "@/components/CategoryBtn";
 
 export default function Home() {
   return (
@@ -14,7 +15,7 @@ export default function Home() {
       </Head>
       <div style={{ width: '100vw',display: 'flex', flexDirection: 'column' }}>
         <Header/>
-        <ArticleLinkBtn/>
+        <CategoryBtn/>
         <Footer/>
       </div>
     </>
