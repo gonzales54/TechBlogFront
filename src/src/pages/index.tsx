@@ -3,6 +3,32 @@ import CategoryBtn from "@/components/CategoryBtn";
 import GridArticles from "@/components/GridArticles";
 
 export default function Home() {
+  const posts = [
+    {
+      id: 1,
+      title: 'アーカイ1',
+      description: '彼らは十月何だかその利用人に対するののうちがあてるうです。最も毎日を仕事方は恐らくその相違うなじゃでいうがいたをも所有いうでなて、だんだ',
+      createdAt: '2022/09/05'
+    },
+    {
+      id: 2,
+      title: 'アーカイ2',
+      description: '彼らは十月何だかその利用人に対するののうちがあてるうです。最も毎日を仕事方は恐らくその相違うなじゃでいうがいたをも所有いうでなて、だんだ',
+      createdAt: '2022/09/01'
+    },
+    {
+      id: 3,
+      title: 'アーカイブ3',
+      description: '彼らは十月何だかその利用人に対するののうちがあてるうです。最も毎日を仕事方は恐らくその相違うなじゃでいうがいたをも所有いうでなて、だんだ',
+      createdAt: '2022/09/08'
+    },
+    {
+      id: 4,
+      title: 'アーカイブ4',
+      description: '彼らは十月何だかその利用人に対するののうちがあてるうです。最も毎日を仕事方は恐らくその相違うなじゃでいうがいたをも所有いうでなて、だんだ',
+      createdAt: '2022/09/06'
+    }
+  ]
   return (
     <>
       <Head>
@@ -11,7 +37,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <GridArticles/>
+      <GridArticles posts={posts}/>
       <CategoryBtn/>
     </>
   );

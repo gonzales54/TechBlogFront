@@ -1,8 +1,11 @@
 .articleBody {
-  padding: 2rem 0;
+  height: calc(100vh - 147px);
   .container {
+    height: 100%;
+    padding: 0 0 5rem 0;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 45% 1fr;
+    position: relative;
     .showCode {
       margin-right: 3.5rem;
       padding: 2rem 1rem;
@@ -10,6 +13,7 @@
     }
     .articleContent {
       padding: 1rem 0;
+      overflow-y: scroll;
       .breadcrumbs {
         margin-bottom: 0.5rem;
         font-size: 0.875rem;
@@ -22,6 +26,38 @@
       .createdAt {
         margin-bottom: 3rem;
         font-size: 0.75rem;
+      }
+    }
+    .slideBar {
+      position: absolute;
+      bottom: 5rem;
+      right: -5px;
+      &::before {
+        width: 3px;
+        height: 3rem;
+        display: block;
+        content: "";
+        background-color: rgba(#111827, 0.1);
+      }
+      span {
+        position: absolute;
+        bottom: 2rem;
+        animation: slidingBar 3s infinite;
+        &::before {
+          width: 3px;
+          height: 1rem;
+          display: block;
+          content: "";
+          background-color: #14B8A6;
+        }
+      }
+    }
+    @keyframes slidingBar {
+      0% {
+        bottom: 2rem;
+      }
+      100% {
+        bottom: 0;
       }
     }
   }

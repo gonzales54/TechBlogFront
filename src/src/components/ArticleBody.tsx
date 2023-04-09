@@ -1,4 +1,5 @@
 import { Klee_One, Poppins, Roboto } from "next/font/google";
+import { useEffect, useRef, useState } from "react";
 
 const klee = Klee_One({
   weight: "400",
@@ -16,6 +17,27 @@ const roboto = Roboto({
 })
 
 const ArticleBody = () => {
+  const [scrolledLength, setScrollLength] = useState<number>(0);
+  const scrollArticleRef = useRef<HTMLDivElement | null>(null);
+  const handleScrollEvent = () => {
+    setScrollLength(scrollArticleRef.current!.scrollTop);
+  }
+
+  useEffect(() => {
+    scrollArticleRef.current?.addEventListener('scroll', handleScrollEvent);
+    return () => {
+      scrollArticleRef.current?.removeEventListener('scroll', handleScrollEvent);
+    }
+  }, []);
+
+  const post = {
+    id: 1,
+    title: 'アーカイ1',
+    description: '彼らは十月何だかその利用人に対するののうちがあてるうです。最も毎日を仕事方は恐らくその相違うなじゃでいうがいたをも所有いうでなて、だんだ',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolorLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolorLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor',
+    createdAt: '2022/09/04'
+  }
+
   return (
     <div className="articleBody">
       <div className="container">
@@ -24,17 +46,18 @@ const ArticleBody = () => {
             Hello World
           {'}'}
         </div>
-        <div className="articleContent">
-          <p className={`${poppins.className} breadcrumbs`}>Articles &gt; title</p>
-          <h2 className={`${klee.className} articleTitle`}>Lorem ipsum dolor sitaaaa amet, consectetur adipiscing</h2>
-          <p className={`${poppins.className} createdAt`}>2022/09/05</p>
-          <p className={`${klee.className} articleText`}>
-            At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. 
-            Nam libero tempore, cum soluta nobis est eligendi optio, cumque nihil impedit, quo minus id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet, ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus erum hic 
-          </p>
-          <span className="slideBar">
-            <span></span>
-          </span>
+        <div className="articleContent scrollHide" ref={scrollArticleRef}>
+          <p className={`${poppins.className} breadcrumbs`}>Articles &gt; {post.title}</p>
+          <h2 className={`${klee.className} articleTitle`}>{post.title}</h2>
+          <p className={`${poppins.className} createdAt`}>{post.createdAt}</p>
+          <p className={`${klee.className} articleText`}>{post.content}</p>
+          {scrolledLength === 0 ?
+            <span className="slideBar">
+              <span></span>
+            </span>
+            : 
+            ""
+          }
         </div>
       </div>
     </div>

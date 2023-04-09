@@ -4,7 +4,7 @@ html {
   input:-webkit-autofill {
     box-shadow: 0 0 0 1000px white inset;
   }
-  &::-webkit-scrollbar {
+  .scrollHide::-webkit-scrollbar {
     display: none;
   }
 }
