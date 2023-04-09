@@ -51,6 +51,32 @@ const GridArticles = () => {
               <p className={`${poppins.className} createdAt`}>2022/09/05</p>
             </div>
           </article>
+          <article className="article">
+            <div className="articleImage">
+              <Image width={0} height={0} src={naturePhoto} alt="Post Photo" />
+            </div>
+            <div className="articleInformation">
+              <h3 className={`${klee.className} articleTitle`}>アーカイブ</h3>
+              <p className={`${klee.className} articleDescription`}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+              <p className={`${poppins.className} createdAt`}>2022/09/05</p>
+            </div>
+          </article>
+          <article className="article">
+            <div className="articleImage">
+              <Image width={0} height={0} src={naturePhoto} alt="Post Photo" />
+            </div>
+            <div className="articleInformation">
+              <h3 className={`${klee.className} articleTitle`}>アーカイブ</h3>
+              <p className={`${klee.className} articleDescription`}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+              <p className={`${poppins.className} createdAt`}>2022/09/05</p>
+            </div>
+          </article>
         </div>
       </div>
     </div>

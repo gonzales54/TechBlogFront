@@ -17,3 +17,14 @@
   width: 2.25rem;
   height: 1.125rem;
 }
+
+@media screen and (max-width: 390px) {
+  .container {
+    width: 90%;
+  }
+
+  .iconChevron {
+    width: 3rem;
+    height: 1.5rem;
+  }
+}

@@ -26,3 +26,22 @@
     }
   }
 }
+
+@media screen and (max-width: 390px) {
+  .articleLinkBtn {
+    width: 100%;
+    .container {
+      padding: 0.5rem 0;
+      .articleLink {
+        padding: 0.75rem .5rem;
+        font-size: .75rem;
+        p {
+          padding: 0 .25rem;
+        }
+      }
+      .linkBorderLine {
+        height: 3rem;
+      }
+    }
+  }
+}

@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import GridArticles from "@/components/GridArticles";
 import Header from "@/components/Header";
 import ArticleBody from "@/components/ArticleBody";
+import ArticleLinkBtn from "@/components/ArticleLinkBtn";
 
 export default function Home() {
   return (
@@ -23,7 +24,10 @@ export default function Home() {
         }}
       >
         <Header />
+        <GridArticles/>
+        <CategoryBtn/>
         <ArticleBody/>
+        <ArticleLinkBtn/>
         <Footer />
       </div>
     </>
