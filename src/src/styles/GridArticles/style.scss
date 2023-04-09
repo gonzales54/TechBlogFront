@@ -70,6 +70,25 @@
     }
   }
 }
+  
+@media screen and (max-width: 950px) {
+  .gridArticles {
+    .articleContainer {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      .article {
+        &:nth-child(odd) {
+          justify-self: start;
+        }
+        &:nth-child(even) {
+          justify-self: end;
+        }
+      }
+    }
+  }
+}
+
 
 @media screen and (max-width: 390px) {
   .gridArticles {

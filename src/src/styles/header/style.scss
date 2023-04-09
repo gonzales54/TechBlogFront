@@ -97,3 +97,19 @@
     }
   }
 }
+
+@media screen and (max-width: 820px) {
+  .header {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem 0;
+    position: relative;
+    .container {
+      display: flex;
+      .nav {
+        li {
+          font-size: .75rem;
+        }
+      }
+    }
+  }
+}
