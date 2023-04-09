@@ -23,12 +23,9 @@ export default function Home() {
           overflow: "hidden",
         }}
       >
-        <Header />
         <GridArticles/>
-        <CategoryBtn/>
         <ArticleBody/>
         <ArticleLinkBtn/>
-        <Footer />
       </div>
     </>
   );
