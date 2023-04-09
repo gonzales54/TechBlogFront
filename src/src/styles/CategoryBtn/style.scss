@@ -11,7 +11,7 @@
     }
     .categoryContainer {
       display: grid; 
-      grid-template-columns: repeat(10, 1fr);
+      grid-template-columns: repeat(12, 1fr);
       gap: 1rem;
       .categoryItem {
         button {
@@ -28,6 +28,17 @@
             box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
           }
         }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .categoryBtn {
+    .container {
+      .categoryContainer {
+        grid-template-columns: repeat(6, 1fr);
+        gap: 0.5rem;
       }
     }
   }
