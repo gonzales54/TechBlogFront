@@ -1,5 +1,9 @@
 import { Klee_One, Poppins, Roboto } from "next/font/google";
-import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/router";
+import { Children, useEffect, useRef, useState } from "react";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { darcula } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 
 const klee = Klee_One({
   weight: "400",
@@ -24,9 +28,9 @@ const ArticleBody = () => {
   }
 
   useEffect(() => {
-    scrollArticleRef.current?.addEventListener('scroll', handleScrollEvent);
+    scrollArticleRef.current!.addEventListener('scroll', handleScrollEvent);
     return () => {
-      scrollArticleRef.current?.removeEventListener('scroll', handleScrollEvent);
+      scrollArticleRef.current!.removeEventListener('scroll', handleScrollEvent);
     }
   }, []);
 
@@ -34,23 +38,95 @@ const ArticleBody = () => {
     id: 1,
     title: 'アーカイ1',
     description: '彼らは十月何だかその利用人に対するののうちがあてるうです。最も毎日を仕事方は恐らくその相違うなじゃでいうがいたをも所有いうでなて、だんだ',
-    content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolorLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolorLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor',
+    content: `# Markdown  
+  ## Markdown2
+
+  ~~~js
+  function getHello World() {
+    console.log('Good Morning Hello World')
+  }
+  ~~~
+
+  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni, nemo!
+  # Markdown  
+  ## Markdown2
+
+  ~~~js
+  function getHello World() {
+    console.log('Good Morning Hello World')
+  }
+  ~~~
+
+  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni, nemo!
+  # Markdown  
+  ## Markdown2
+
+  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni, nemo!
+  # Markdown  
+  ## Markdown2
+  ~~~js
+  function calculate(a, b) {
+    return a + b
+  }
+  ~~~
+
+  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni, nemo!
+  # Markdown  
+  ## Markdown2
+
+  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni, nemo!
+  # Markdown  
+  ## Markdown2
+
+  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni, nemo!
+  # Markdown  
+  ## Markdown2
+
+  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni, nemo!
+  # Markdown  
+  ## Markdown2
+
+  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni, nemo!
+  # Markdown  
+  ## Markdown2
+
+  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni, nemo!
+  `,
     createdAt: '2022/09/04'
   }
+
+  const regex = /~~~[\s\S]*?~~~/g;
+  const matches = post.content.match(regex);
+
+  const router = useRouter();
+  if(!router.isReady) return;
 
   return (
     <div className="articleBody">
       <div className="container">
         <div className={`${roboto.className} showCode`}>
-          function dummyFunction() {'{'}
-            Hello World
-          {'}'}
+          {matches!.map((code, index: number) => {
+            return (
+              <ReactMarkdown key={index}>{code}</ReactMarkdown>
+            )
+          })}
         </div>
         <div className="articleContent scrollHide" ref={scrollArticleRef}>
           <p className={`${poppins.className} breadcrumbs`}>Articles &gt; {post.title}</p>
           <h2 className={`${klee.className} articleTitle`}>{post.title}</h2>
           <p className={`${poppins.className} createdAt`}>{post.createdAt}</p>
-          <p className={`${klee.className} articleText`}>{post.content}</p>
+          <div className="markdown">
+            <ReactMarkdown
+              components={{
+                h1: ({node, ...props}) => <div className="h1" {...props}></div>,
+                h2: ({node, ...props}) => <div className="h2" {...props}></div>,
+                h3: ({node, ...props}) => <div className="h3" {...props}></div>,
+                p: ({node, ...props}) => <p className="paragraph" {...props}></p>,
+                pre: ({node, ...props}) => <></>
+              }}
+              >{post.content}
+            </ReactMarkdown>
+          </div>
           {scrolledLength === 0 ?
             <span className="slideBar">
               <span></span>
