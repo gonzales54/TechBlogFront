@@ -19,7 +19,7 @@ const poppins = Poppins({
 const GridArticles = ({posts}) => {
   const [rotateDegree, setRotateDegree] = useState<number>(0);
   const [isFetchingArticles, setFetchingArticles] = useState<boolean>(false);
-  const reloadBtnRef = useRef<HTMLButtonElement | null>(null);
+  const reloadBtnRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     setFetchingArticles(true);

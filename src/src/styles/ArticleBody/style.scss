@@ -11,7 +11,7 @@
       border: solid 1px rgba(#111827, 0.1);
       border-radius: 0.5rem;
       background-color: #111827;
-      pre {
+      .codes {
         margin: 1rem 0;
         .language-js {
           height: 100%;
@@ -22,6 +22,9 @@
           font-weight: 600;
           line-height: 1.25;
         }
+      }
+      .codes.hide {
+        opacity: .4;
       }
     }
     .articleContent {
